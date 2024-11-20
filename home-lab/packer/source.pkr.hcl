@@ -82,7 +82,7 @@ source "proxmox-iso" "ubuntu-server-noble" {
     # ssh_password        = "${var.ssh_username}"
     # - or -
     # (Option 2) Add your Private SSH KEY file here
-    ssh_private_key_file    = "~/.ssh/id_rsa"
+    ssh_private_key_file    = "~/.ssh/home-lab"
 
     # Raise the timeout, when installation takes longer
     ssh_timeout             = "13m"

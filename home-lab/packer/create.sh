@@ -12,12 +12,13 @@ op read "op://HomeLab/home lab ssh key/private key" --out-file ~/.ssh/id_rsa
 
 
 ################ Packer
+# init 
+packer init .
 
 # validate
 packer validate -var-file=proxmox_creds.hcl  .
 
 # build
-packer init ./ubuntu-server-noble.pkr.hcl
 packer build -var-file=proxmox_creds.hcl  .
 
 
