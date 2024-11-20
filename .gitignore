@@ -1,1 +1,4 @@
 proxmox_creds.hcl
+credentials.auto.tfvars
+.terraform
+terraform.tfstate
