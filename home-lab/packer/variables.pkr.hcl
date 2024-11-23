@@ -17,7 +17,6 @@ variable "proxmox_api_token_secret" {
 }
 
 
-
 variable "ssh_username" {
     type = string
 }
