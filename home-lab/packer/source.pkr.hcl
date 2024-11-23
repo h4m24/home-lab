@@ -39,7 +39,7 @@ source "proxmox-iso" "ubuntu-server-noble" {
     }
 
     # VM CPU Settings
-    cores = "2"
+    cores = "4"
     
     # VM Memory Settings
     memory = "2048" 
