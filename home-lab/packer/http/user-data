@@ -24,7 +24,7 @@ autoinstall:
     package_upgrade: false
     timezone: Europe/Berlin
     users:
-      - name: h4m24
+      - name: hamza
         groups: [adm, sudo]
         lock-passwd: false
         sudo: 'ALL=(ALL) NOPASSWD:ALL'

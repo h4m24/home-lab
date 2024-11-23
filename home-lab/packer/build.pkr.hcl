@@ -5,6 +5,16 @@ build {
   sources = ["source.proxmox-iso.ubuntu-server-noble"]
 
   # Provisioning the VM Template for Cloud-Init Integration in Proxmox #1
+
+
+  provisioner "shell" {
+    inline = [
+      "echo 'Installing Proxmox agent'",
+      "apt-get update",
+      "apt-get install -y qemu-guest-agent"
+    ]
+  }
+
   provisioner "shell" {
     inline = [
       "while [ ! -f /var/lib/cloud/instance/boot-finished ]; do echo 'Waiting for cloud-init...'; sleep 1; done",

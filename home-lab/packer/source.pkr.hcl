@@ -53,7 +53,7 @@ source "proxmox-iso" "ubuntu-server-noble" {
 
   # VM Cloud-Init Settings
   cloud_init              = true
-  cloud_init_storage_pool = "local-lvm"
+  cloud_init_storage_pool = "samsung"
 
   # PACKER Boot Commands
   boot_command = [
