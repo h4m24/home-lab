@@ -18,6 +18,8 @@ VM_ID = 8001  # Replace with your VM ID
 STORAGE = os.getenv("STORAGE")
 DISK_SIZE = "2G"  # Replace with the disk size for the cloud-init volume
 CLOUD_INIT_FILE = "user-data.yaml"  # Replace with your cloud-init file name
+CI_USER = os.getenv("CI_USER")  # Read from .env
+CI_PASSWORD = os.getenv("CI_PASSWORD")  # Read from .env
 
 def create_cloud_init_volume():
     try:
@@ -35,8 +37,8 @@ def create_cloud_init_volume():
 
         # Create the cloud-init volume
         response = proxmox.nodes(NODE).qemu(VM_ID).config.post(
-            ciuser="asdasdasdasdasdasd",  # Replace with the default user for cloud-init
-            cipassword="asdasdasdas"  # Replace with the default password for cloud-init
+            ciuser=CI_USER,  # Replace with the default user for cloud-init
+            cipassword=CI_PASSWORD  # Replace with the default password for cloud-init
         )
 
         print(f"Cloud-init configuration updated successfully: {response}")
