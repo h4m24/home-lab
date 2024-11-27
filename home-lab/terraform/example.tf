@@ -2,7 +2,8 @@ resource "proxmox_vm_qemu" "cloudinit-example" {
   vmid             = 100
   name             = "test-terraform0"
   target_node      = "proxmox"
-  agent            = 1
+  # https://github.com/Telmate/terraform-provider-proxmox/issues/922#issuecomment-1923899040
+  agent            = 0
   cores            = 4
   memory           = 2024
   boot             = "order=scsi0"  # has to be the same as the OS disk of the template
