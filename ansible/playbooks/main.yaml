@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  gather_facts: yes
+  tasks:
+    - name: Example task
+      debug:
+        msg: "Hello from Ansible Pull"
+        # - name: Run specific role
+        #   include_role:
+        #   name: your_role_name

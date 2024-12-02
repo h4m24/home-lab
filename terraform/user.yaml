@@ -1,0 +1,28 @@
+#cloud-config
+hostname: ${hostname}
+fqdn: ${hostname}.blue-finch.org
+manage_etc_hosts: true
+package_update: true
+# package_upgrade: true
+users:
+  - name: hamza
+    passwd: $5$XNa7SCip$RGVDWZSJXhabUfaEqyZS.01PHEuXnKsNZ8t3GmD0gJ6
+    lock_passwd: false
+    groups: sudo
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCvTewkc81OI44WLCPUPPyDIMfvb4DA6aM938E8e8E68vs40MlSMGq7+CKgE3al+iAQ4HcwEH+TnCJJJ8YxJx5pfj4bhElf4BeAIfPGS/aLvddSu0EIap7gOjr66qyQdfHTJAR677Agvgyoyy5m12Ut2vmYj4oS1NVBe1bQ8kJxVLLrWviriA+mfrVQ/za4UHGYJgNI+FboYEaJt/GSESFBkUR6Izkwhyq6AFGxeli3/4BL0YpyQmAtGkyxwEAplTZJwAX0664deSvX/FRiNWNXknIUSVeDhuPhMtFI9deAXRTqzSd7rgHobPEg3WRBPxNmL8bVbOOUB1kQK/os6KeHcPRbISAyNlgZJvq32arXnE1/ph/6BnmtafbUP+gKO2l0x8mw24tsPUXPzseFYIm6lFGibZtRMM9wQ1voAC0FXkk8qGtc08mbDgykD77Dwq6b+FpDIekg4IYAM3vKY/iITMzqknVuSaaj8bDNQWqnMAFo04DA/IxIwaRUh+/ywqZKVq/mw4sb368H2WtA90jtzH3ZtOAsJUSzteHzZpCglAetlIE6spZh0cazL/SFQG4A2bmugqg0/35GzFK3vMxmaj0+l8F0Iao2i9H5o4HDhnr8C7KnXU1M7a0+TLjtRgr1k+aKB5aDldOoq4ym+hdygHELYQCPaHtIzXAJK2/Lkw==
+chpasswd:
+  expire: False
+write_files:
+  - path: /etc/sudoers.d/90-cloud-init-users
+    content: |
+      hamza ALL=(ALL) NOPASSWD:ALL
+    permissions: '0440'
+packages:
+  - git
+  - ansible
+  - htop
+  - net-tools
+runcmd:
+  - ANSIBLE_CONFIG=/opt/home-lab/ansible/ansible.cfg ansible-pull -U https://github.com/h4m24/home-lab.git -i localhost ansible/playbooks/${ansible_playbook_file}  -d /opt/home-lab

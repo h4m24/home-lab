@@ -1,0 +1,8 @@
+proxmox_creds.hcl
+credentials.auto.tfvars
+.terraform
+terraform.tfstate
+terraform.tfstate.backup
+
+
+.env
