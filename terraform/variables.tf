@@ -1,17 +1,7 @@
-variable "proxmox_api_url" {
-  type = string
-}
-
-variable "proxmox_api_token_id" {
-  type = string
-}
-
-variable "proxmox_api_token_secret" {
-  type = string
-}
-
 variable "pihole_api_token_secret" {
-  type = string
+  description = "API token for Pi-hole"
+  type        = string
+  sensitive   = true
 }
 
 variable "cloud_init_meta_source" {

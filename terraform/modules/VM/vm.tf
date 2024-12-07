@@ -1,3 +1,4 @@
+
 resource "proxmox_vm_qemu" "machine" {
   vmid        = var.vmid
   name        = var.name

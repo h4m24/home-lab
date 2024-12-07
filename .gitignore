@@ -3,6 +3,6 @@ credentials.auto.tfvars
 .terraform
 terraform.tfstate
 terraform.tfstate.backup
-
+credentials-variables.tf
 
 .env
