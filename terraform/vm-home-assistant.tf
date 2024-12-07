@@ -1,7 +1,7 @@
 locals {
   user_data_home-assistant = templatefile("${path.module}/user.yaml", {
     hostname              = "home-assistant"
-    ansible_playbook_file = "home-assistant.yml"
+    ansible_playbook_file = "main.yml"
   })
   user_data_file_home-assistant = "/tmp/generated_user_data_home-assistant.yaml"
 }
