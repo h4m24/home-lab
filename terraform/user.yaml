@@ -25,4 +25,10 @@ packages:
   - htop
   - net-tools
 runcmd:
+  - [ "dd", "if=/dev/zero", "of=/swapfile", "bs=1G", "count=4" ]
+  - [ "chmod", "600", "/swapfile" ]
+  - [ "mkswap", "/swapfile" ]
+  - [ "swapon", "/swapfile" ]
   - ANSIBLE_CONFIG=/opt/home-lab/ansible/ansible.cfg ansible-pull -U https://github.com/h4m24/home-lab.git -i localhost ansible/playbooks/${ansible_playbook_file}  -d /opt/home-lab
+mounts:
+  - [ "/swapfile", "none", "swap", "defaults", "0", "0" ]
