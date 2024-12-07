@@ -23,7 +23,7 @@ module "vm_prometheus" {
   # frequently changed variables
   vmid      = 161
   name      = "prometheus"
-  cores     = 2
+  cores     = 4
   memory    = 2048
   ipconfig0 = "ip=10.10.20.60/24,gw=10.10.20.1"
 
